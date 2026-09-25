@@ -1,350 +1,637 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feliz Día de los Carritos de Hot Wheels 💙</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi niño hermoso 💙</title>
 
-    body {
-      background-color: #080911;
-      color: #ffffff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@400;600;700&display=swap');
 
-    /* Fondo Estrellado */
-    .stars {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px) 0 0/25px 25px;
-      z-index: 1;
-    }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-    /* Encabezado */
-    header {
-      margin-top: 40px;
-      text-align: center;
-      z-index: 10;
-    }
+body{
+    overflow:hidden;
+    background:#000;
+    font-family:'Poppins',sans-serif;
+}
 
-    h1 {
-      font-size: 1.8rem;
-      color: #38b6ff;
-      text-shadow: 0 0 12px rgba(56, 182, 255, 0.8);
-      animation: pulse 2s infinite ease-in-out;
-    }
+.contenedor{
+    width:100vw;
+    height:100vh;
+    min-height:600px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 20%,#ff1493 0%,transparent 35%),
+        linear-gradient(180deg,#ff0080,#13000d 70%,#000);
+}
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
+/* CORAZONES DEL FONDO */
 
-    /* Carrito SVG Animado de Izquierda a Derecha sin voltearse de cabeza */
-    .car-container {
-      position: absolute;
-      top: 25%;
-      left: -120px;
-      width: 90px;
-      height: 40px;
-      z-index: 5;
-      animation: drive 7s linear infinite;
-    }
+.corazones{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
 
-    @keyframes drive {
-      0% { left: -120px; transform: scaleX(1); }
-      48% { left: 100vw; transform: scaleX(1); }
-      50% { left: 100vw; transform: scaleX(-1); }
-      98% { left: -120px; transform: scaleX(-1); }
-      100% { left: -120px; transform: scaleX(1); }
-    }
+.corazon{
+    position:absolute;
+    color:#ff5bad;
+    font-size:25px;
+    opacity:.5;
+    animation:subir linear infinite;
+    text-shadow:0 0 15px #ff008c;
+}
 
-    /* Flores saliendo desde abajo */
-    .flowers-container {
-      position: absolute;
-      bottom: -350px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 25px;
-      z-index: 10;
-      cursor: pointer;
-      animation: growUp 2s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
-      animation-delay: 0.3s;
+@keyframes subir{
+    0%{
+        transform:translateY(110vh) scale(.5);
+        opacity:0;
     }
-
-    @keyframes growUp {
-      to {
-        bottom: 30px;
-      }
+    20%{
+        opacity:.7;
     }
-
-    /* Flor Azul con pétalos detallados */
-    .flower {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      transition: transform 0.3s ease;
+    80%{
+        opacity:.4;
     }
-
-    .flower:hover {
-      transform: scale(1.08);
+    100%{
+        transform:translateY(-20vh) scale(1.4) rotate(25deg);
+        opacity:0;
     }
+}
 
-    .flower-head {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      filter: drop-shadow(0 0 15px rgba(0, 162, 255, 0.8));
+/* CABECERA */
+
+.titulo{
+    position:absolute;
+    top:28px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:20px;
+    font-weight:700;
+    z-index:20;
+    text-shadow:0 0 12px #fff;
+}
+
+.titulo span{
+    color:#69c8ff;
+}
+
+/* PANEL PRINCIPAL */
+
+.panel{
+    position:absolute;
+    width:92%;
+    height:49%;
+    left:4%;
+    top:10%;
+    border-radius:24px;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 100%,#102344,#03040c 70%);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:
+        0 0 35px rgba(0,0,0,.8),
+        inset 0 0 40px rgba(0,80,255,.12);
+}
+
+/* ESTRELLAS */
+
+.estrella{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 0 8px #fff;
+    animation:brillar 2s infinite alternate;
+}
+
+@keyframes brillar{
+    from{opacity:.2}
+    to{opacity:1}
+}
+
+/* TEXTO SUPERIOR */
+
+.frase{
+    position:absolute;
+    top:17px;
+    left:5%;
+    width:90%;
+    text-align:center;
+    color:#5ecaff;
+    font-family:'Patrick Hand',cursive;
+    font-size:25px;
+    line-height:1.05;
+    text-shadow:0 0 10px #168cff;
+    z-index:8;
+}
+
+/* FLORES */
+
+.flores{
+    position:absolute;
+    bottom:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:75%;
+    height:78%;
+    z-index:3;
+}
+
+.tallo{
+    position:absolute;
+    bottom:0;
+    width:6px;
+    height:72%;
+    background:linear-gradient(#4fcf54,#126b32);
+    border-radius:20px;
+    transform-origin:bottom;
+}
+
+.t1{left:30%;transform:rotate(-15deg)}
+.t2{left:43%;height:82%;transform:rotate(-5deg)}
+.t3{left:55%;height:90%;transform:rotate(4deg)}
+.t4{left:68%;height:75%;transform:rotate(14deg)}
+.t5{left:50%;height:68%;transform:rotate(-1deg)}
+
+.hoja{
+    position:absolute;
+    width:45px;
+    height:22px;
+    border-radius:100% 0 100% 0;
+    background:linear-gradient(135deg,#69c83d,#146b2d);
+}
+
+.h1{left:27%;bottom:29%;transform:rotate(25deg)}
+.h2{left:37%;bottom:38%;transform:rotate(-30deg)}
+.h3{left:57%;bottom:27%;transform:rotate(25deg)}
+.h4{left:65%;bottom:43%;transform:rotate(-25deg)}
+.h5{left:46%;bottom:20%;transform:rotate(-15deg)}
+
+.flor{
+    position:absolute;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 50% 50%,#5dd6ff 0 8%,transparent 9%),
+        radial-gradient(circle at 50% 15%,#188fff 0 27%,transparent 28%),
+        radial-gradient(circle at 85% 38%,#1687ff 0 27%,transparent 28%),
+        radial-gradient(circle at 70% 83%,#0875ee 0 27%,transparent 28%),
+        radial-gradient(circle at 30% 83%,#0875ee 0 27%,transparent 28%),
+        radial-gradient(circle at 15% 38%,#1687ff 0 27%,transparent 28%);
+    filter:drop-shadow(0 0 10px #008cff);
+    animation:aparecer 1.8s ease forwards;
+    opacity:0;
+    transform:scale(.2);
+}
+
+.f1{left:19%;top:25%;animation-delay:.5s}
+.f2{left:39%;top:7%;animation-delay:.8s}
+.f3{left:59%;top:21%;animation-delay:1s}
+.f4{left:29%;top:47%;animation-delay:1.2s}
+.f5{left:51%;top:42%;animation-delay:1.4s}
+.f6{left:70%;top:48%;animation-delay:1.6s}
+
+@keyframes aparecer{
+    to{
+        opacity:1;
+        transform:scale(1);
     }
+}
 
-    .petal {
-      position: absolute;
-      width: 36px;
-      height: 60px;
-      background: linear-gradient(to top, #0055ff, #38b6ff);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      transform-origin: bottom center;
+/* CARROS ANIMADOS */
+
+.carro{
+    position:absolute;
+    width:95px;
+    z-index:12;
+    filter:drop-shadow(0 0 8px #ff4500);
+    animation:correr 5s linear infinite;
+}
+
+.carro1{
+    top:32%;
+    left:-130px;
+}
+
+.carro2{
+    top:48%;
+    right:-130px;
+    transform:scaleX(-1);
+    animation-delay:2.5s;
+}
+
+@keyframes correr{
+    from{
+        transform:translateX(0);
     }
-
-    .petal:nth-child(1) { transform: rotate(0deg) translateY(-20px); }
-    .petal:nth-child(2) { transform: rotate(60deg) translateY(-20px); }
-    .petal:nth-child(3) { transform: rotate(120deg) translateY(-20px); }
-    .petal:nth-child(4) { transform: rotate(180deg) translateY(-20px); }
-    .petal:nth-child(5) { transform: rotate(240deg) translateY(-20px); }
-    .petal:nth-child(6) { transform: rotate(300deg) translateY(-20px); }
-
-    .center-circle {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      background: radial-gradient(circle, #87cefa, #0033aa);
-      border-radius: 50%;
-      z-index: 2;
+    to{
+        transform:translateX(calc(100vw + 250px));
     }
+}
 
-    .stem {
-      width: 6px;
-      height: 220px;
-      background: linear-gradient(to bottom, #2d8a4e, #134e27);
-      border-radius: 3px;
-    }
+/* IMAGEN DEL HOT WHEELS */
 
-    /* Indicador visual */
-    .click-hint {
-      position: absolute;
-      bottom: 15px;
-      font-size: 0.9rem;
-      color: #87cefa;
-      z-index: 15;
-      animation: blink 1.5s infinite;
-    }
+.tarjeta{
+    position:absolute;
+    z-index:15;
+    width:190px;
+    height:220px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    perspective:1000px;
+    cursor:pointer;
+}
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
+.tarjeta-interior{
+    width:100%;
+    height:100%;
+    position:relative;
+    transition:transform .9s;
+    transform-style:preserve-3d;
+}
 
-    /* Modal de Tarjeta */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(4px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
+.tarjeta.voltear .tarjeta-interior{
+    transform:rotateY(180deg);
+}
 
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+.cara{
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    border-radius:12px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.3);
+    box-shadow:
+        0 0 20px rgba(0,150,255,.45),
+        0 0 50px rgba(0,0,0,.7);
+    background:#07101d;
+}
 
-    .card {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 25px;
-      max-width: 320px;
-      width: 85%;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0, 162, 255, 0.5);
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-    }
+.cara img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-    .modal-overlay.active .card {
-      transform: translateY(0);
-    }
+.trasera{
+    transform:rotateY(180deg);
+}
 
-    .close-btn {
-      position: absolute;
-      top: 12px;
-      right: 15px;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      cursor: pointer;
-    }
+.indicador{
+    position:absolute;
+    bottom:-27px;
+    left:0;
+    width:100%;
+    text-align:center;
+    color:#91dfff;
+    font-size:10px;
+}
 
-    .card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-      color: #ffffff;
-      line-height: 1.4;
-    }
+/* VENTANA DE CÓDIGO */
 
-    /* Tarjeta de PlayStation/Regalo en CSS SVG */
-    .gift-card-box {
-      width: 100%;
-      height: 150px;
-      background: linear-gradient(135deg, #003791, #0072ce);
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 15px;
-    }
+.codigo{
+    position:absolute;
+    width:72%;
+    height:31%;
+    left:14%;
+    bottom:7%;
+    background:#00101d;
+    border-radius:15px;
+    z-index:20;
+    border:1px solid rgba(50,170,255,.25);
+    box-shadow:0 15px 35px rgba(0,0,0,.8);
+    overflow:hidden;
+}
 
-    .gift-card-box svg {
-      width: 50px;
-      height: 50px;
-      fill: white;
-      margin-bottom: 8px;
-    }
+.barra{
+    height:38px;
+    display:flex;
+    align-items:center;
+    padding-left:13px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
 
-    .gift-card-box span {
-      font-weight: bold;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
+.punto{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-right:6px;
+}
+
+.rojo{background:#ff4d55}
+.amarillo{background:#ffc928}
+.verde{background:#52dc55}
+
+.nombre{
+    margin-left:auto;
+    margin-right:15px;
+    color:#a9d8f5;
+    font-family:monospace;
+    font-size:10px;
+}
+
+.codigo pre{
+    padding:12px 15px;
+    color:#7fc9ff;
+    font-family:monospace;
+    font-size:10px;
+    line-height:1.55;
+    white-space:pre-wrap;
+}
+
+/* MENSAJE */
+
+.mensaje{
+    position:absolute;
+    z-index:30;
+    left:5%;
+    width:90%;
+    bottom:4%;
+    text-align:center;
+    color:white;
+    font-size:13px;
+    line-height:1.5;
+    opacity:0;
+    animation:mensaje 2s 6s forwards;
+    text-shadow:0 0 8px #000;
+}
+
+.mensaje strong{
+    color:#6bcfff;
+}
+
+@keyframes mensaje{
+    to{opacity:1}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:450px){
+    .titulo{font-size:17px}
+    .frase{font-size:21px}
+    .tarjeta{
+        width:155px;
+        height:180px;
     }
-  </style>
+    .codigo{
+        width:82%;
+        left:9%;
+        height:29%;
+    }
+    .codigo pre{
+        font-size:8px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="stars"></div>
+<div class="contenedor">
 
-  <header>
-    <h1>Feliz día de los carritos<br>de Hot Wheels 💙🚗</h1>
-  </header>
+    <div class="corazones" id="corazones"></div>
 
-  <!-- Carrito dibujado en SVG puro -->
-  <div class="car-container">
-    <svg viewBox="0 0 100 40" width="100%" height="100%">
-      <path d="M 10 25 L 20 12 L 50 10 L 75 18 L 95 22 L 95 30 L 5 30 Z" fill="#e60000" />
-      <path d="M 23 14 L 48 12 L 48 20 L 18 20 Z" fill="#87cefa" />
-      <path d="M 52 12 L 70 18 L 70 20 L 52 20 Z" fill="#87cefa" />
-      <circle cx="25" cy="30" r="7" fill="#222" />
-      <circle cx="25" cy="30" r="3" fill="#ccc" />
-      <circle cx="75" cy="30" r="7" fill="#222" />
-      <circle cx="75" cy="30" r="3" fill="#ccc" />
-      <polygon points="90,23 95,23 95,26 90,26" fill="#ffff00" />
-    </svg>
-  </div>
-
-  <!-- Flores con pétalos bien definidos -->
-  <div class="flowers-container" id="flowersContainer">
-    <div class="flower">
-      <div class="flower-head">
-        <div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div>
-        <div class="center-circle"></div>
-      </div>
-      <div class="stem"></div>
+    <div class="titulo">
+        PARA MI <span>NIÑO HERMOSO</span> 💙
     </div>
 
-    <div class="flower" style="transform: scale(1.15) translateY(-15px);">
-      <div class="flower-head">
-        <div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div>
-        <div class="center-circle"></div>
-      </div>
-      <div class="stem"></div>
+    <div class="panel">
+
+        <div class="frase">
+            Feliz día de los carritos<br>
+            de Hot Wheels 💙
+        </div>
+
+        <div id="estrellas"></div>
+
+        <!-- CARRO DE LA ANIMACIÓN -->
+        <!-- Pon el archivo del carrito como carro.png -->
+        <img src="carro.png" class="carro carro1">
+
+        <img src="carro.png" class="carro carro2">
+
+        <!-- FLORES AZULES -->
+
+        <div class="flores">
+
+            <div class="tallo t1"></div>
+            <div class="tallo t2"></div>
+            <div class="tallo t3"></div>
+            <div class="tallo t4"></div>
+            <div class="tallo t5"></div>
+
+            <div class="hoja h1"></div>
+            <div class="hoja h2"></div>
+            <div class="hoja h3"></div>
+            <div class="hoja h4"></div>
+            <div class="hoja h5"></div>
+
+            <div class="flor f1"></div>
+            <div class="flor f2"></div>
+            <div class="flor f3"></div>
+            <div class="flor f4"></div>
+            <div class="flor f5"></div>
+            <div class="flor f6"></div>
+
+        </div>
+
+        <!--
+        frontal.jpg = LA IMAGEN QUE ME MANDASTE
+        trasera.jpg = LA IMAGEN QUE APARECE EN EL VIDEO
+        -->
+
+        <div class="tarjeta" id="tarjeta" onclick="voltear()">
+
+            <div class="tarjeta-interior">
+
+                <div class="cara">
+                    <img src="frontal.jpg" alt="Hot Wheels">
+                </div>
+
+                <div class="cara trasera">
+                    <img src="trasera.jpg" alt="Hot Wheels">
+                </div>
+
+            </div>
+
+            <div class="indicador">
+                Toca el carrito 💙
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="flower">
-      <div class="flower-head">
-        <div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div>
-        <div class="center-circle"></div>
-      </div>
-      <div class="stem"></div>
+    <!-- VENTANA DE CÓDIGO -->
+
+    <div class="codigo">
+
+        <div class="barra">
+            <div class="punto rojo"></div>
+            <div class="punto amarillo"></div>
+            <div class="punto verde"></div>
+
+            <div class="nombre">
+                Style.css
+            </div>
+        </div>
+
+        <pre id="codigoTexto"></pre>
+
     </div>
-  </div>
 
-  <div class="click-hint">Toca las flores para ver tu sorpresa ✨</div>
+    <div class="mensaje">
 
-  <!-- Ventana Modal de la Tarjeta -->
-  <div class="modal-overlay" id="modal">
-    <div class="card">
-      <button class="close-btn" id="closeBtn">&times;</button>
-      <h2>Cuanto más tiempo estoy contigo, más te amo. ❤️</h2>
-      
-      <div class="gift-card-box">
-        <!-- Logo estilo PlayStation/Regalo -->
-        <svg viewBox="0 0 24 24">
-          <path d="M23.869 15.025c-.234-.783-1.002-1.38-1.928-1.583l-7.391-1.637v-2.31l6.702 1.488c.846.188 1.623-.177 1.905-.889.283-.712-.047-1.536-.893-1.724l-7.714-1.713V5.042c0-.986-.758-1.785-1.693-1.785-.935 0-1.693.799-1.693 1.785v1.617l-7.714 1.713c-.846.188-1.176 1.012-.893 1.724.282.712 1.059 1.077 1.905.889l6.702-1.488v2.31l-7.391 1.637c-.926.203-1.694.8-1.928 1.583-.284.95.127 1.95 1.01 2.37l7.106 3.376c.404.192.848.289 1.291.289.443 0 .887-.097 1.291-.289l7.106-3.376c.883-.42 1.294-1.42 1.01-2.37z"/>
-        </svg>
-        <span>PlayStation Gift Card</span>
-      </div>
+        <strong>Para mi niño hermoso que tanto amo 💙</strong><br><br>
+
+        Si algún día dudas de lo importante que eres para mí,
+        vuelve a leer esto. Llegaste a mi vida y dejaste una huella
+        que nadie podría reemplazar. Gracias por cada sonrisa,
+        cada momento y cada pedacito de amor que me das.
+        Te amo más de lo que estas palabras pueden decir. 💙🌷
+
     </div>
-  </div>
 
-  <script>
-    const flowers = document.getElementById('flowersContainer');
-    const modal = document.getElementById('modal');
-    const closeBtn = document.getElementById('closeBtn');
+</div>
 
-    flowers.addEventListener('click', () => {
-      modal.classList.add('active');
-    });
+<script>
 
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-    });
+/* CREAR CORAZONES */
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
-    });
-  </script>
+const contenedorCorazones =
+document.getElementById("corazones");
+
+for(let i=0;i<35;i++){
+
+    const corazon =
+    document.createElement("div");
+
+    corazon.className="corazon";
+    corazon.innerHTML="♡";
+
+    corazon.style.left =
+    Math.random()*100+"%";
+
+    corazon.style.fontSize =
+    (15+Math.random()*30)+"px";
+
+    corazon.style.animationDuration =
+    (7+Math.random()*10)+"s";
+
+    corazon.style.animationDelay =
+    (-Math.random()*15)+"s";
+
+    contenedorCorazones.appendChild(corazon);
+}
+
+
+/* CREAR ESTRELLAS */
+
+const estrellas =
+document.getElementById("estrellas");
+
+for(let i=0;i<35;i++){
+
+    const estrella =
+    document.createElement("div");
+
+    estrella.className="estrella";
+
+    estrella.style.left =
+    Math.random()*100+"%";
+
+    estrella.style.top =
+    Math.random()*100+"%";
+
+    estrella.style.animationDelay =
+    Math.random()*2+"s";
+
+    estrellas.appendChild(estrella);
+}
+
+
+/* CÓDIGO QUE SE ESCRIBE */
+
+const texto = `.
+.Hot_Wheels {
+    position: absolute;
+    width: 90%;
+    font-size: 2rem;
+    font-family: "Te Amo";
+    height: var(--letter-love);
+    transform: translateX(-50%);
+    background: var(--letter);
+}
+
+.love {
+    color: #168cff;
+    animation: bloom 1.5s ease;
+}`;
+
+const codigo =
+document.getElementById("codigoTexto");
+
+let posicion=0;
+
+function escribir(){
+
+    if(posicion < texto.length){
+
+        codigo.textContent =
+        texto.substring(0,posicion);
+
+        posicion++;
+
+        setTimeout(escribir,25);
+
+    }
+
+}
+
+setTimeout(escribir,1000);
+
+
+/* VOLTEAR IMAGEN */
+
+function voltear(){
+
+    document
+    .getElementById("tarjeta")
+    .classList.toggle("voltear");
+
+}
+
+
+/* VOLTEAR AUTOMÁTICAMENTE */
+
+setTimeout(()=>{
+
+    document
+    .getElementById("tarjeta")
+    .classList.add("voltear");
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("tarjeta")
+        .classList.remove("voltear");
+
+    },3000);
+
+},9000);
+
+</script>
+
 </body>
-</html>
+  </html>
