@@ -69,7 +69,7 @@ body{
 
 .titulo{
     position:absolute;
-    top:20px;
+    top:25px;
     width:100%;
     text-align:center;
     color:white;
@@ -88,7 +88,7 @@ body{
 .panel{
     position:absolute;
     width:92%;
-    height:45%;
+    height:50%;
     left:4%;
     top:8%;
     border-radius:24px;
@@ -134,93 +134,106 @@ body{
     z-index:8;
 }
 
-/* FLORES MEJORADAS */
+/* FLORES AZULES UNIDAS A SUS TALLOS */
 
-.flores{
-    position:absolute;
-    bottom:-10px;
-    left:50%;
-    transform:translateX(-50%);
-    width:85%;
-    height:80%;
-    z-index:3;
+.ramillete {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    z-index: 3;
 }
 
-.tallo{
-    position:absolute;
-    bottom:0;
-    width:5px;
-    height:70%;
-    background:linear-gradient(#4fcf54,#126b32);
-    border-radius:10px;
-    transform-origin:bottom;
+.planta {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: bottom center;
 }
 
-.t1{left:20%;transform:rotate(-12deg)}
-.t2{left:35%;height:80%;transform:rotate(-5deg)}
-.t3{left:50%;height:85%;transform:rotate(0deg)}
-.t4{left:65%;height:78%;transform:rotate(5deg)}
-.t5{left:80%;height:68%;transform:rotate(12deg)}
+.p1 { left: 15%; height: 75%; transform: rotate(-8deg); }
+.p2 { left: 32%; height: 85%; transform: rotate(-3deg); }
+.p3 { left: 50%; height: 90%; transform: rotate(0deg); }
+.p4 { left: 68%; height: 82%; transform: rotate(4deg); }
+.p5 { left: 85%; height: 72%; transform: rotate(9deg); }
 
-.hoja{
-    position:absolute;
-    width:35px;
-    height:18px;
-    border-radius:100% 0 100% 0;
-    background:linear-gradient(135deg,#69c83d,#146b2d);
+.tallo-linea {
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(#4fcf54, #126b32);
+    border-radius: 10px;
+    position: relative;
 }
 
-.h1{left:18%;bottom:30%;transform:rotate(25deg)}
-.h2{left:33%;bottom:40%;transform:rotate(-30deg)}
-.h3{left:48%;bottom:25%;transform:rotate(25deg)}
-.h4{left:63%;bottom:45%;transform:rotate(-25deg)}
-.h5{left:78%;bottom:20%;transform:rotate(15deg)}
-
-/* FLOR CON PETALOS DEFINIDOS */
-.flor{
-    position:absolute;
-    width:50px;
-    height:50px;
-    animation:aparecer 1.8s ease forwards;
-    opacity:0;
-    transform:scale(.2);
+.hoja-tallo {
+    position: absolute;
+    width: 25px;
+    height: 12px;
+    background: linear-gradient(135deg, #69c83d, #146b2d);
+    border-radius: 100% 0 100% 0;
 }
 
-.flor .centro {
-    position:absolute;
-    width:16px;
-    height:16px;
-    background:#fff799;
-    border-radius:50%;
-    top:17px;
-    left:17px;
-    z-index:2;
-    box-shadow:0 0 8px #fff;
+.hoja-tallo.izq { left: -22px; bottom: 30%; transform: rotate(-20deg); }
+.hoja-tallo.der { right: -22px; bottom: 50%; transform: rotate(20deg) scaleX(-1); }
+
+/* FLOR AZUL ESTRUCTURADA */
+
+.flor-azul {
+    position: absolute;
+    top: -25px;
+    width: 55px;
+    height: 55px;
+    animation: aparecer 1.5s ease forwards;
+    opacity: 0;
+    filter: drop-shadow(0 0 8px #0088ff);
 }
 
-.flor .petalo {
-    position:absolute;
-    width:18px;
-    height:26px;
-    background:linear-gradient(to top, #005bb5, #5ce1e6);
-    border-radius:50%;
-    top:12px;
-    left:16px;
-    transform-origin:center bottom;
+.flor-azul .centro-flor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #e0f7ff 0%, #38b6ff 100%);
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 0 6px #5ce1e6;
 }
 
-.flor .p1 { transform: rotate(0deg) translateY(-10px); }
-.flor .p2 { transform: rotate(60deg) translateY(-10px); }
-.flor .p3 { transform: rotate(120deg) translateY(-10px); }
-.flor .p4 { transform: rotate(180deg) translateY(-10px); }
-.flor .p5 { transform: rotate(240deg) translateY(-10px); }
-.flor .p6 { transform: rotate(300deg) translateY(-10px); }
+.flor-azul .petalos {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
-.f1{left:12%;top:25%;animation-delay:.5s}
-.f2{left:29%;top:10%;animation-delay:.8s}
-.f3{left:45%;top:5%;animation-delay:1s}
-.f4{left:61%;top:12%;animation-delay:1.2s}
-.f5{left:76%;top:22%;animation-delay:1.4s}
+.flor-azul .petalos span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 9px;
+    height: 24px;
+    background: linear-gradient(to top, #0052d4, #4364f7, #6fb1fc);
+    border-radius: 50%;
+    transform-origin: center bottom;
+    margin-left: -4.5px;
+    margin-top: -24px;
+}
+
+.flor-azul .petalos span:nth-child(1) { transform: rotate(0deg); }
+.flor-azul .petalos span:nth-child(2) { transform: rotate(30deg); }
+.flor-azul .petalos span:nth-child(3) { transform: rotate(60deg); }
+.flor-azul .petalos span:nth-child(4) { transform: rotate(90deg); }
+.flor-azul .petalos span:nth-child(5) { transform: rotate(120deg); }
+.flor-azul .petalos span:nth-child(6) { transform: rotate(150deg); }
+.flor-azul .petalos span:nth-child(7) { transform: rotate(180deg); }
+.flor-azul .petalos span:nth-child(8) { transform: rotate(210deg); }
+.flor-azul .petalos span:nth-child(9) { transform: rotate(240deg); }
+.flor-azul .petalos span:nth-child(10) { transform: rotate(270deg); }
+.flor-azul .petalos span:nth-child(11) { transform: rotate(300deg); }
+.flor-azul .petalos span:nth-child(12) { transform: rotate(330deg); }
 
 @keyframes aparecer{
     to{
@@ -233,8 +246,8 @@ body{
 
 .carro{
     position:absolute;
-    width:70px;
-    height:35px;
+    width:65px;
+    height:30px;
     z-index:12;
     filter:drop-shadow(0 0 8px #ff4500);
     animation:correr 5s linear infinite;
@@ -261,13 +274,13 @@ body{
     }
 }
 
-/* TARJETA DEL HOT WHEELS */
+/* TARJETA INTERACTIVA CON EL MENSAJE AL TOCAR */
 
 .tarjeta{
     position:absolute;
     z-index:15;
-    width:160px;
-    height:200px;
+    width:190px;
+    height:230px;
     left:50%;
     top:52%;
     transform:translate(-50%,-50%);
@@ -291,7 +304,7 @@ body{
     position:absolute;
     inset:0;
     backface-visibility:hidden;
-    border-radius:12px;
+    border-radius:14px;
     overflow:hidden;
     border:2px solid rgba(255,255,255,.3);
     box-shadow:
@@ -302,17 +315,35 @@ body{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:10px;
+    padding:12px;
 }
 
 .cara svg {
-    width:100%;
+    width:80%;
     height:auto;
 }
 
 .trasera{
     transform:rotateY(180deg);
     background:linear-gradient(135deg, #091c38, #000511);
+    padding: 15px;
+    text-align: center;
+}
+
+/* MENSAJE DENTRO DE LA TARJETA */
+
+.mensaje-tarjeta {
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 1.35;
+    text-shadow: 0 0 5px #000;
+}
+
+.mensaje-tarjeta strong {
+    color: #6bcfff;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 6px;
 }
 
 .indicador{
@@ -325,14 +356,14 @@ body{
     font-size:11px;
 }
 
-/* VENTANA DE CÓDIGO */
+/* VENTANA DE CÓDIGO ABAJO */
 
 .codigo{
     position:absolute;
     width:84%;
-    height:22%;
+    height:28%;
     left:8%;
-    bottom:20%;
+    bottom:5%;
     background:#00101d;
     border-radius:12px;
     z-index:20;
@@ -369,62 +400,35 @@ body{
 }
 
 .codigo pre{
-    padding:8px 12px;
+    padding:10px 12px;
     color:#7fc9ff;
     font-family:monospace;
-    font-size:9px;
-    line-height:1.4;
-    white-space:pre-wrap;
-}
-
-/* MENSAJE REUBICADO */
-
-.mensaje{
-    position:absolute;
-    z-index:30;
-    left:6%;
-    width:88%;
-    bottom:3%;
-    text-align:center;
-    color:white;
-    font-size:12px;
+    font-size:10px;
     line-height:1.45;
-    opacity:0;
-    animation:mensaje 2s 3s forwards;
-    text-shadow:0 0 8px #000;
-}
-
-.mensaje strong{
-    color:#6bcfff;
-    font-size:13px;
-}
-
-@keyframes mensaje{
-    to{opacity:1}
+    white-space:pre-wrap;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:450px){
-    .titulo{font-size:16px; top:15px;}
+    .titulo{font-size:16px; top:18px;}
     .frase{font-size:20px}
-    .panel{height:42%; top:7%;}
+    .panel{height:48%; top:8%;}
     .tarjeta{
-        width:135px;
-        height:165px;
+        width:160px;
+        height:200px;
+    }
+    .mensaje-tarjeta {
+        font-size: 9.5px;
     }
     .codigo{
         width:88%;
         left:6%;
-        height:21%;
-        bottom:22%;
+        height:26%;
+        bottom:5%;
     }
     .codigo pre{
-        font-size:8px;
-    }
-    .mensaje{
-        font-size:11px;
-        bottom:2%;
+        font-size:8.5px;
     }
 }
 </style>
@@ -449,7 +453,7 @@ body{
 
         <div id="estrellas"></div>
 
-        <!-- SILUETA DE CARRO SVG -->
+        <!-- SILUETA DE CARROS -->
         <svg class="carro carro1" viewBox="0 0 100 50">
             <path d="M10,35 L20,35 A8,8 0 0,1 36,35 L64,35 A8,8 0 0,1 80,35 L90,35 C95,35 98,30 95,25 L85,20 L65,10 L35,10 L20,20 L10,22 C5,22 0,27 0,30 L0,32 C0,34 2,35 10,35 Z" fill="#ff2e00"/>
             <circle cx="28" cy="35" r="6" fill="#333" stroke="#fff" stroke-width="2"/>
@@ -464,65 +468,89 @@ body{
             <path d="M38,13 L62,13 L72,20 L28,20 Z" fill="#ffea00" opacity="0.7"/>
         </svg>
 
-        <!-- FLORES AZULES -->
+        <!-- FLORES AZULES CONECTADAS A LOS TALLOS -->
 
-        <div class="flores">
+        <div class="ramillete">
 
-            <div class="tallo t1"></div>
-            <div class="tallo t2"></div>
-            <div class="tallo t3"></div>
-            <div class="tallo t4"></div>
-            <div class="tallo t5"></div>
-
-            <div class="hoja h1"></div>
-            <div class="hoja h2"></div>
-            <div class="hoja h3"></div>
-            <div class="hoja h4"></div>
-            <div class="hoja h5"></div>
-
-            <div class="flor f1">
-                <div class="centro"></div>
-                <div class="petalo p1"></div><div class="petalo p2"></div>
-                <div class="petalo p3"></div><div class="petalo p4"></div>
-                <div class="petalo p5"></div><div class="petalo p6"></div>
-            </div>
-            
-            <div class="flor f2">
-                <div class="centro"></div>
-                <div class="petalo p1"></div><div class="petalo p2"></div>
-                <div class="petalo p3"></div><div class="petalo p4"></div>
-                <div class="petalo p5"></div><div class="petalo p6"></div>
+            <div class="planta p1">
+                <div class="flor-azul">
+                    <div class="centro-flor"></div>
+                    <div class="petalos">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="tallo-linea">
+                    <div class="hoja-tallo izq"></div>
+                </div>
             </div>
 
-            <div class="flor f3">
-                <div class="centro"></div>
-                <div class="petalo p1"></div><div class="petalo p2"></div>
-                <div class="petalo p3"></div><div class="petalo p4"></div>
-                <div class="petalo p5"></div><div class="petalo p6"></div>
+            <div class="planta p2">
+                <div class="flor-azul">
+                    <div class="centro-flor"></div>
+                    <div class="petalos">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="tallo-linea">
+                    <div class="hoja-tallo der"></div>
+                </div>
             </div>
 
-            <div class="flor f4">
-                <div class="centro"></div>
-                <div class="petalo p1"></div><div class="petalo p2"></div>
-                <div class="petalo p3"></div><div class="petalo p4"></div>
-                <div class="petalo p5"></div><div class="petalo p6"></div>
+            <div class="planta p3">
+                <div class="flor-azul">
+                    <div class="centro-flor"></div>
+                    <div class="petalos">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="tallo-linea">
+                    <div class="hoja-tallo izq"></div>
+                </div>
             </div>
 
-            <div class="flor f5">
-                <div class="centro"></div>
-                <div class="petalo p1"></div><div class="petalo p2"></div>
-                <div class="petalo p3"></div><div class="petalo p4"></div>
-                <div class="petalo p5"></div><div class="petalo p6"></div>
+            <div class="planta p4">
+                <div class="flor-azul">
+                    <div class="centro-flor"></div>
+                    <div class="petalos">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="tallo-linea">
+                    <div class="hoja-tallo der"></div>
+                </div>
+            </div>
+
+            <div class="planta p5">
+                <div class="flor-azul">
+                    <div class="centro-flor"></div>
+                    <div class="petalos">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="tallo-linea">
+                    <div class="hoja-tallo izq"></div>
+                </div>
             </div>
 
         </div>
 
-        <!-- TARJETA HOT WHEELS SVG -->
+        <!-- TARJETA HOT WHEELS INTERACTIVA -->
 
         <div class="tarjeta" id="tarjeta" onclick="voltear()">
 
             <div class="tarjeta-interior">
 
+                <!-- CARA FRONTAL -->
                 <div class="cara">
                     <svg viewBox="0 0 100 120">
                         <rect x="5" y="5" width="90" height="110" rx="8" fill="#111" stroke="#00d2ff" stroke-width="2"/>
@@ -535,12 +563,12 @@ body{
                     </svg>
                 </div>
 
+                <!-- CARA TRASERA CON EL MENSAJE REVELADO -->
                 <div class="cara trasera">
-                    <svg viewBox="0 0 100 120">
-                        <rect x="5" y="5" width="90" height="110" rx="8" fill="#031126" stroke="#ff0080" stroke-width="2"/>
-                        <path d="M50,45 C50,45 35,30 25,40 C15,50 30,65 50,80 C70,65 85,50 75,40 C65,30 50,45 50,45 Z" fill="#ff1493"/>
-                        <text x="50" y="95" fill="#fff" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle">TE AMO 💙</text>
-                    </svg>
+                    <div class="mensaje-tarjeta">
+                        <strong>Para mi niño hermoso 💙</strong>
+                        Si algún día dudas de lo importantísimo que eres para mí, vuelve a leer esto. Llegaste a mi vida y dejaste una huella que nadie podría reemplazar. Te amo más de lo que estas palabras pueden decir. 💙🌷
+                    </div>
                 </div>
 
             </div>
@@ -569,11 +597,6 @@ body{
 
         <pre id="codigoTexto"></pre>
 
-    </div>
-
-    <div class="mensaje">
-        <strong>Para mi niño hermoso que tanto amo 💙</strong><br>
-        Si algún día dudas de lo importante que eres para mí, vuelve a leer esto. Llegaste a mi vida y dejaste una huella que nadie podría reemplazar. Te amo más de lo que estas palabras pueden decir. 💙🌷
     </div>
 
 </div>
@@ -648,26 +671,14 @@ function escribir(){
 setTimeout(escribir,1000);
 
 
-/* VOLTEAR IMAGEN */
+/* VOLTEAR TARJETA AL TOCAR */
 
 function voltear(){
     document.getElementById("tarjeta").classList.toggle("voltear");
 }
 
-
-/* VOLTEAR AUTOMÁTICAMENTE */
-
-setTimeout(()=>{
-    document.getElementById("tarjeta").classList.add("voltear");
-
-    setTimeout(()=>{
-        document.getElementById("tarjeta").classList.remove("voltear");
-    },3000);
-
-},6000);
-
 </script>
 
 </body>
     </html>
-            
+    
