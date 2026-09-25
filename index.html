@@ -453,6 +453,9 @@ body{
 
 <body>
 
+<!-- MUSICA DE FONDO -->
+<audio id="musica" src="cancion.mp3" loop></audio>
+
 <div class="contenedor">
 
     <div class="corazones" id="corazones"></div>
@@ -618,6 +621,14 @@ body{
 
 <script>
 
+/* REPRODUCCIÓN AUTOMÁTICA DE MÚSICA AL INTERACTUAR */
+const musica = document.getElementById("musica");
+document.body.addEventListener("click", () => {
+    if (musica.paused) {
+        musica.play();
+    }
+}, { once: true });
+
 /* CREAR CORAZONES */
 
 const contenedorCorazones = document.getElementById("corazones");
@@ -696,4 +707,4 @@ function voltear(){
 
 </body>
     </html>
-                
+    
