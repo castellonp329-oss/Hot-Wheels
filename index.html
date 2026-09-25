@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feliz Día de los Carritos de Hot Wheels 💙</title>
   <style>
-    /* Estilos Generales */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,7 +12,7 @@
     }
 
     body {
-      background-color: #0b0c10;
+      background-color: #080911;
       color: #ffffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       height: 100vh;
@@ -25,186 +24,134 @@
       position: relative;
     }
 
-    /* Fondo Estrellado / Destellos */
+    /* Fondo Estrellado */
     .stars {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%) 0 0/20px 20px;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px) 0 0/25px 25px;
       z-index: 1;
     }
 
     /* Encabezado */
     header {
-      margin-top: 30px;
+      margin-top: 40px;
       text-align: center;
       z-index: 10;
     }
 
     h1 {
-      font-size: 2rem;
-      color: #4da6ff;
-      text-shadow: 0 0 10px rgba(77, 166, 255, 0.8);
+      font-size: 1.8rem;
+      color: #38b6ff;
+      text-shadow: 0 0 12px rgba(56, 182, 255, 0.8);
       animation: pulse 2s infinite ease-in-out;
     }
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      50% { transform: scale(1.03); }
     }
 
-    /* Carrito Flotante pasando de lado a lado */
-    .hotwheel-car {
+    /* Carrito SVG Animado de Izquierda a Derecha sin voltearse de cabeza */
+    .car-container {
       position: absolute;
       top: 25%;
-      left: -100px;
-      width: 80px;
+      left: -120px;
+      width: 90px;
+      height: 40px;
       z-index: 5;
-      animation: drive 6s linear infinite;
+      animation: drive 7s linear infinite;
     }
 
     @keyframes drive {
-      0% { left: -100px; transform: scaleX(1); }
-      50% { left: 100vw; transform: scaleX(1); }
-      50.1% { left: 100vw; transform: scaleX(-1); }
-      100% { left: -100px; transform: scaleX(-1); }
+      0% { left: -120px; transform: scaleX(1); }
+      48% { left: 100vw; transform: scaleX(1); }
+      50% { left: 100vw; transform: scaleX(-1); }
+      98% { left: -120px; transform: scaleX(-1); }
+      100% { left: -120px; transform: scaleX(1); }
     }
 
     /* Flores saliendo desde abajo */
     .flowers-container {
       position: absolute;
-      bottom: -300px;
+      bottom: -350px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      gap: 15px;
+      gap: 25px;
       z-index: 10;
       cursor: pointer;
-      animation: growUp 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
-      animation-delay: 0.5s;
+      animation: growUp 2s cubic-bezier(0.175, 0.885, 0.32, 1.27) forwards;
+      animation-delay: 0.3s;
     }
 
     @keyframes growUp {
       to {
-        bottom: 50px;
+        bottom: 30px;
       }
     }
 
-    /* Diseño de Flor Azul Vectorial */
+    /* Flor Azul con pétalos detallados */
     .flower {
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
       transition: transform 0.3s ease;
     }
 
     .flower:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
-    .petals {
-      width: 70px;
-      height: 70px;
-      background: #1e90ff;
-      border-radius: 50%;
-      box-shadow: 0 0 20px #00bfff, inset 0 0 15px #00008b;
+    .flower-head {
       position: relative;
-    }
-
-    .petals::before, .petals::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      border-radius: inherit;
-      box-shadow: inherit;
-    }
-
-    .petals::before { transform: rotate(30deg); }
-    .petals::after { transform: rotate(60deg); }
-
-    .stem {
-      width: 8px;
-      height: 180px;
-      background: linear-gradient(to bottom, #2e8b57, #006400);
-      border-radius: 4px;
-    }
-
-    /* Modal / Tarjeta Emergente */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
+      width: 100px;
+      height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 100;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
+      filter: drop-shadow(0 0 15px rgba(0, 162, 255, 0.8));
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .card {
-      background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
-      border-radius: 20px;
-      padding: 25px;
-      max-width: 320px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 191, 255, 0.5);
-      position: relative;
-      transform: translateY(30px);
-      transition: transform 0.4s ease;
-    }
-
-    .modal-overlay.active .card {
-      transform: translateY(0);
-    }
-
-    .close-btn {
+    .petal {
       position: absolute;
-      top: 10px;
-      right: 15px;
-      background: rgba(255, 255, 255, 0.3);
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      border-radius: 50%;
+      width: 36px;
+      height: 60px;
+      background: linear-gradient(to top, #0055ff, #38b6ff);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform-origin: bottom center;
+    }
+
+    .petal:nth-child(1) { transform: rotate(0deg) translateY(-20px); }
+    .petal:nth-child(2) { transform: rotate(60deg) translateY(-20px); }
+    .petal:nth-child(3) { transform: rotate(120deg) translateY(-20px); }
+    .petal:nth-child(4) { transform: rotate(180deg) translateY(-20px); }
+    .petal:nth-child(5) { transform: rotate(240deg) translateY(-20px); }
+    .petal:nth-child(6) { transform: rotate(300deg) translateY(-20px); }
+
+    .center-circle {
+      position: absolute;
       width: 30px;
       height: 30px;
-      cursor: pointer;
+      background: radial-gradient(circle, #87cefa, #0033aa);
+      border-radius: 50%;
+      z-index: 2;
     }
 
-    .card h2 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      color: #fff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    .stem {
+      width: 6px;
+      height: 220px;
+      background: linear-gradient(to bottom, #2d8a4e, #134e27);
+      border-radius: 3px;
     }
 
-    .gift-card-img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      margin-top: 10px;
-    }
-
+    /* Indicador visual */
     .click-hint {
       position: absolute;
-      bottom: 20px;
+      bottom: 15px;
       font-size: 0.9rem;
       color: #87cefa;
       z-index: 15;
@@ -214,6 +161,96 @@
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
+    }
+
+    /* Modal de Tarjeta */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 25px;
+      max-width: 320px;
+      width: 85%;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 162, 255, 0.5);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .card {
+      transform: translateY(0);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+      line-height: 1.4;
+    }
+
+    /* Tarjeta de PlayStation/Regalo en CSS SVG */
+    .gift-card-box {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, #003791, #0072ce);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 15px;
+    }
+
+    .gift-card-box svg {
+      width: 50px;
+      height: 50px;
+      fill: white;
+      margin-bottom: 8px;
+    }
+
+    .gift-card-box span {
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
     }
   </style>
 </head>
@@ -225,21 +262,49 @@
     <h1>Feliz día de los carritos<br>de Hot Wheels 💙🚗</h1>
   </header>
 
-  <!-- Elemento de Carrito animado -->
-  <img class="hotwheel-car" src="https://cdn-icons-png.flaticon.com/512/744/741407.png" alt="Hot Wheels Car">
+  <!-- Carrito dibujado en SVG puro -->
+  <div class="car-container">
+    <svg viewBox="0 0 100 40" width="100%" height="100%">
+      <path d="M 10 25 L 20 12 L 50 10 L 75 18 L 95 22 L 95 30 L 5 30 Z" fill="#e60000" />
+      <path d="M 23 14 L 48 12 L 48 20 L 18 20 Z" fill="#87cefa" />
+      <path d="M 52 12 L 70 18 L 70 20 L 52 20 Z" fill="#87cefa" />
+      <circle cx="25" cy="30" r="7" fill="#222" />
+      <circle cx="25" cy="30" r="3" fill="#ccc" />
+      <circle cx="75" cy="30" r="7" fill="#222" />
+      <circle cx="75" cy="30" r="3" fill="#ccc" />
+      <polygon points="90,23 95,23 95,26 90,26" fill="#ffff00" />
+    </svg>
+  </div>
 
-  <!-- Ramo de Flores Azules que aparecen desde abajo -->
+  <!-- Flores con pétalos bien definidos -->
   <div class="flowers-container" id="flowersContainer">
     <div class="flower">
-      <div class="petals"></div>
+      <div class="flower-head">
+        <div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div>
+        <div class="center-circle"></div>
+      </div>
       <div class="stem"></div>
     </div>
-    <div class="flower" style="transform: scale(1.15) translateY(-10px);">
-      <div class="petals"></div>
+
+    <div class="flower" style="transform: scale(1.15) translateY(-15px);">
+      <div class="flower-head">
+        <div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div>
+        <div class="center-circle"></div>
+      </div>
       <div class="stem"></div>
     </div>
+
     <div class="flower">
-      <div class="petals"></div>
+      <div class="flower-head">
+        <div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div>
+        <div class="center-circle"></div>
+      </div>
       <div class="stem"></div>
     </div>
   </div>
@@ -252,8 +317,13 @@
       <button class="close-btn" id="closeBtn">&times;</button>
       <h2>Cuanto más tiempo estoy contigo, más te amo. ❤️</h2>
       
-      <!-- Puedes reemplazar la URL de la imagen por tu propia tarjeta de regalo o Hot Wheels -->
-      <img class="gift-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="Tarjeta de Regalo">
+      <div class="gift-card-box">
+        <!-- Logo estilo PlayStation/Regalo -->
+        <svg viewBox="0 0 24 24">
+          <path d="M23.869 15.025c-.234-.783-1.002-1.38-1.928-1.583l-7.391-1.637v-2.31l6.702 1.488c.846.188 1.623-.177 1.905-.889.283-.712-.047-1.536-.893-1.724l-7.714-1.713V5.042c0-.986-.758-1.785-1.693-1.785-.935 0-1.693.799-1.693 1.785v1.617l-7.714 1.713c-.846.188-1.176 1.012-.893 1.724.282.712 1.059 1.077 1.905.889l6.702-1.488v2.31l-7.391 1.637c-.926.203-1.694.8-1.928 1.583-.284.95.127 1.95 1.01 2.37l7.106 3.376c.404.192.848.289 1.291.289.443 0 .887-.097 1.291-.289l7.106-3.376c.883-.42 1.294-1.42 1.01-2.37z"/>
+        </svg>
+        <span>PlayStation Gift Card</span>
+      </div>
     </div>
   </div>
 
@@ -262,17 +332,14 @@
     const modal = document.getElementById('modal');
     const closeBtn = document.getElementById('closeBtn');
 
-    // Al presionar las flores abre la tarjeta
     flowers.addEventListener('click', () => {
       modal.classList.add('active');
     });
 
-    // Cerrar la tarjeta al presionar la 'X'
     closeBtn.addEventListener('click', () => {
       modal.classList.remove('active');
     });
 
-    // Cerrar al hacer clic fuera de la tarjeta
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('active');
@@ -280,5 +347,4 @@
     });
   </script>
 </body>
-  </html>
-  
+</html>
