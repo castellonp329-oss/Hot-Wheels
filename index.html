@@ -69,7 +69,7 @@ body{
 
 .titulo{
     position:absolute;
-    top:28px;
+    top:20px;
     width:100%;
     text-align:center;
     color:white;
@@ -88,9 +88,9 @@ body{
 .panel{
     position:absolute;
     width:92%;
-    height:49%;
+    height:45%;
     left:4%;
-    top:10%;
+    top:8%;
     border-radius:24px;
     overflow:hidden;
     background:
@@ -122,84 +122,105 @@ body{
 
 .frase{
     position:absolute;
-    top:17px;
+    top:12px;
     left:5%;
     width:90%;
     text-align:center;
     color:#5ecaff;
     font-family:'Patrick Hand',cursive;
-    font-size:25px;
+    font-size:24px;
     line-height:1.05;
     text-shadow:0 0 10px #168cff;
     z-index:8;
 }
 
-/* FLORES */
+/* FLORES MEJORADAS */
 
 .flores{
     position:absolute;
-    bottom:-15px;
+    bottom:-10px;
     left:50%;
     transform:translateX(-50%);
-    width:75%;
-    height:78%;
+    width:85%;
+    height:80%;
     z-index:3;
 }
 
 .tallo{
     position:absolute;
     bottom:0;
-    width:6px;
-    height:72%;
+    width:5px;
+    height:70%;
     background:linear-gradient(#4fcf54,#126b32);
-    border-radius:20px;
+    border-radius:10px;
     transform-origin:bottom;
 }
 
-.t1{left:30%;transform:rotate(-15deg)}
-.t2{left:43%;height:82%;transform:rotate(-5deg)}
-.t3{left:55%;height:90%;transform:rotate(4deg)}
-.t4{left:68%;height:75%;transform:rotate(14deg)}
-.t5{left:50%;height:68%;transform:rotate(-1deg)}
+.t1{left:20%;transform:rotate(-12deg)}
+.t2{left:35%;height:80%;transform:rotate(-5deg)}
+.t3{left:50%;height:85%;transform:rotate(0deg)}
+.t4{left:65%;height:78%;transform:rotate(5deg)}
+.t5{left:80%;height:68%;transform:rotate(12deg)}
 
 .hoja{
     position:absolute;
-    width:45px;
-    height:22px;
+    width:35px;
+    height:18px;
     border-radius:100% 0 100% 0;
     background:linear-gradient(135deg,#69c83d,#146b2d);
 }
 
-.h1{left:27%;bottom:29%;transform:rotate(25deg)}
-.h2{left:37%;bottom:38%;transform:rotate(-30deg)}
-.h3{left:57%;bottom:27%;transform:rotate(25deg)}
-.h4{left:65%;bottom:43%;transform:rotate(-25deg)}
-.h5{left:46%;bottom:20%;transform:rotate(-15deg)}
+.h1{left:18%;bottom:30%;transform:rotate(25deg)}
+.h2{left:33%;bottom:40%;transform:rotate(-30deg)}
+.h3{left:48%;bottom:25%;transform:rotate(25deg)}
+.h4{left:63%;bottom:45%;transform:rotate(-25deg)}
+.h5{left:78%;bottom:20%;transform:rotate(15deg)}
 
+/* FLOR CON PETALOS DEFINIDOS */
 .flor{
     position:absolute;
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    background:
-        radial-gradient(circle at 50% 50%,#5dd6ff 0 8%,transparent 9%),
-        radial-gradient(circle at 50% 15%,#188fff 0 27%,transparent 28%),
-        radial-gradient(circle at 85% 38%,#1687ff 0 27%,transparent 28%),
-        radial-gradient(circle at 70% 83%,#0875ee 0 27%,transparent 28%),
-        radial-gradient(circle at 30% 83%,#0875ee 0 27%,transparent 28%),
-        radial-gradient(circle at 15% 38%,#1687ff 0 27%,transparent 28%);
-    filter:drop-shadow(0 0 10px #008cff);
+    width:50px;
+    height:50px;
     animation:aparecer 1.8s ease forwards;
     opacity:0;
     transform:scale(.2);
 }
 
-.f1{left:19%;top:25%;animation-delay:.5s}
-.f2{left:39%;top:7%;animation-delay:.8s}
-.f3{left:59%;top:21%;animation-delay:1s}
-.f4{left:29%;top:47%;animation-delay:1.2s}
-.f5{left:51%;top:42%;animation-delay:1.4s}
-.f6{left:70%;top:48%;animation-delay:1.6s}
+.flor .centro {
+    position:absolute;
+    width:16px;
+    height:16px;
+    background:#fff799;
+    border-radius:50%;
+    top:17px;
+    left:17px;
+    z-index:2;
+    box-shadow:0 0 8px #fff;
+}
+
+.flor .petalo {
+    position:absolute;
+    width:18px;
+    height:26px;
+    background:linear-gradient(to top, #005bb5, #5ce1e6);
+    border-radius:50%;
+    top:12px;
+    left:16px;
+    transform-origin:center bottom;
+}
+
+.flor .p1 { transform: rotate(0deg) translateY(-10px); }
+.flor .p2 { transform: rotate(60deg) translateY(-10px); }
+.flor .p3 { transform: rotate(120deg) translateY(-10px); }
+.flor .p4 { transform: rotate(180deg) translateY(-10px); }
+.flor .p5 { transform: rotate(240deg) translateY(-10px); }
+.flor .p6 { transform: rotate(300deg) translateY(-10px); }
+
+.f1{left:12%;top:25%;animation-delay:.5s}
+.f2{left:29%;top:10%;animation-delay:.8s}
+.f3{left:45%;top:5%;animation-delay:1s}
+.f4{left:61%;top:12%;animation-delay:1.2s}
+.f5{left:76%;top:22%;animation-delay:1.4s}
 
 @keyframes aparecer{
     to{
@@ -212,19 +233,20 @@ body{
 
 .carro{
     position:absolute;
-    width:95px;
+    width:70px;
+    height:35px;
     z-index:12;
     filter:drop-shadow(0 0 8px #ff4500);
     animation:correr 5s linear infinite;
 }
 
 .carro1{
-    top:32%;
+    top:38%;
     left:-130px;
 }
 
 .carro2{
-    top:48%;
+    top:52%;
     right:-130px;
     transform:scaleX(-1);
     animation-delay:2.5s;
@@ -239,15 +261,15 @@ body{
     }
 }
 
-/* IMAGEN DEL HOT WHEELS */
+/* TARJETA DEL HOT WHEELS */
 
 .tarjeta{
     position:absolute;
     z-index:15;
-    width:190px;
-    height:220px;
+    width:160px;
+    height:200px;
     left:50%;
-    top:50%;
+    top:52%;
     transform:translate(-50%,-50%);
     perspective:1000px;
     cursor:pointer;
@@ -276,57 +298,62 @@ body{
         0 0 20px rgba(0,150,255,.45),
         0 0 50px rgba(0,0,0,.7);
     background:#07101d;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
 }
 
-.cara img{
+.cara svg {
     width:100%;
-    height:100%;
-    object-fit:cover;
+    height:auto;
 }
 
 .trasera{
     transform:rotateY(180deg);
+    background:linear-gradient(135deg, #091c38, #000511);
 }
 
 .indicador{
     position:absolute;
-    bottom:-27px;
+    bottom:-24px;
     left:0;
     width:100%;
     text-align:center;
     color:#91dfff;
-    font-size:10px;
+    font-size:11px;
 }
 
 /* VENTANA DE CÓDIGO */
 
 .codigo{
     position:absolute;
-    width:72%;
-    height:31%;
-    left:14%;
-    bottom:7%;
+    width:84%;
+    height:22%;
+    left:8%;
+    bottom:20%;
     background:#00101d;
-    border-radius:15px;
+    border-radius:12px;
     z-index:20;
     border:1px solid rgba(50,170,255,.25);
-    box-shadow:0 15px 35px rgba(0,0,0,.8);
+    box-shadow:0 10px 25px rgba(0,0,0,.8);
     overflow:hidden;
 }
 
 .barra{
-    height:38px;
+    height:28px;
     display:flex;
     align-items:center;
-    padding-left:13px;
+    padding-left:10px;
     border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .punto{
-    width:10px;
-    height:10px;
+    width:8px;
+    height:8px;
     border-radius:50%;
-    margin-right:6px;
+    margin-right:5px;
 }
 
 .rojo{background:#ff4d55}
@@ -335,40 +362,41 @@ body{
 
 .nombre{
     margin-left:auto;
-    margin-right:15px;
+    margin-right:12px;
     color:#a9d8f5;
     font-family:monospace;
-    font-size:10px;
+    font-size:9px;
 }
 
 .codigo pre{
-    padding:12px 15px;
+    padding:8px 12px;
     color:#7fc9ff;
     font-family:monospace;
-    font-size:10px;
-    line-height:1.55;
+    font-size:9px;
+    line-height:1.4;
     white-space:pre-wrap;
 }
 
-/* MENSAJE */
+/* MENSAJE REUBICADO */
 
 .mensaje{
     position:absolute;
     z-index:30;
-    left:5%;
-    width:90%;
-    bottom:4%;
+    left:6%;
+    width:88%;
+    bottom:3%;
     text-align:center;
     color:white;
-    font-size:13px;
-    line-height:1.5;
+    font-size:12px;
+    line-height:1.45;
     opacity:0;
-    animation:mensaje 2s 6s forwards;
+    animation:mensaje 2s 3s forwards;
     text-shadow:0 0 8px #000;
 }
 
 .mensaje strong{
     color:#6bcfff;
+    font-size:13px;
 }
 
 @keyframes mensaje{
@@ -378,19 +406,25 @@ body{
 /* RESPONSIVE */
 
 @media(max-width:450px){
-    .titulo{font-size:17px}
-    .frase{font-size:21px}
+    .titulo{font-size:16px; top:15px;}
+    .frase{font-size:20px}
+    .panel{height:42%; top:7%;}
     .tarjeta{
-        width:155px;
-        height:180px;
+        width:135px;
+        height:165px;
     }
     .codigo{
-        width:82%;
-        left:9%;
-        height:29%;
+        width:88%;
+        left:6%;
+        height:21%;
+        bottom:22%;
     }
     .codigo pre{
         font-size:8px;
+    }
+    .mensaje{
+        font-size:11px;
+        bottom:2%;
     }
 }
 </style>
@@ -415,11 +449,20 @@ body{
 
         <div id="estrellas"></div>
 
-        <!-- CARRO DE LA ANIMACIÓN -->
-        <!-- Pon el archivo del carrito como carro.png -->
-        <img src="carro.png" class="carro carro1">
+        <!-- SILUETA DE CARRO SVG -->
+        <svg class="carro carro1" viewBox="0 0 100 50">
+            <path d="M10,35 L20,35 A8,8 0 0,1 36,35 L64,35 A8,8 0 0,1 80,35 L90,35 C95,35 98,30 95,25 L85,20 L65,10 L35,10 L20,20 L10,22 C5,22 0,27 0,30 L0,32 C0,34 2,35 10,35 Z" fill="#ff2e00"/>
+            <circle cx="28" cy="35" r="6" fill="#333" stroke="#fff" stroke-width="2"/>
+            <circle cx="72" cy="35" r="6" fill="#333" stroke="#fff" stroke-width="2"/>
+            <path d="M38,13 L62,13 L72,20 L28,20 Z" fill="#00e5ff" opacity="0.7"/>
+        </svg>
 
-        <img src="carro.png" class="carro carro2">
+        <svg class="carro carro2" viewBox="0 0 100 50">
+            <path d="M10,35 L20,35 A8,8 0 0,1 36,35 L64,35 A8,8 0 0,1 80,35 L90,35 C95,35 98,30 95,25 L85,20 L65,10 L35,10 L20,20 L10,22 C5,22 0,27 0,30 L0,32 C0,34 2,35 10,35 Z" fill="#0088ff"/>
+            <circle cx="28" cy="35" r="6" fill="#333" stroke="#fff" stroke-width="2"/>
+            <circle cx="72" cy="35" r="6" fill="#333" stroke="#fff" stroke-width="2"/>
+            <path d="M38,13 L62,13 L72,20 L28,20 Z" fill="#ffea00" opacity="0.7"/>
+        </svg>
 
         <!-- FLORES AZULES -->
 
@@ -437,36 +480,73 @@ body{
             <div class="hoja h4"></div>
             <div class="hoja h5"></div>
 
-            <div class="flor f1"></div>
-            <div class="flor f2"></div>
-            <div class="flor f3"></div>
-            <div class="flor f4"></div>
-            <div class="flor f5"></div>
-            <div class="flor f6"></div>
+            <div class="flor f1">
+                <div class="centro"></div>
+                <div class="petalo p1"></div><div class="petalo p2"></div>
+                <div class="petalo p3"></div><div class="petalo p4"></div>
+                <div class="petalo p5"></div><div class="petalo p6"></div>
+            </div>
+            
+            <div class="flor f2">
+                <div class="centro"></div>
+                <div class="petalo p1"></div><div class="petalo p2"></div>
+                <div class="petalo p3"></div><div class="petalo p4"></div>
+                <div class="petalo p5"></div><div class="petalo p6"></div>
+            </div>
+
+            <div class="flor f3">
+                <div class="centro"></div>
+                <div class="petalo p1"></div><div class="petalo p2"></div>
+                <div class="petalo p3"></div><div class="petalo p4"></div>
+                <div class="petalo p5"></div><div class="petalo p6"></div>
+            </div>
+
+            <div class="flor f4">
+                <div class="centro"></div>
+                <div class="petalo p1"></div><div class="petalo p2"></div>
+                <div class="petalo p3"></div><div class="petalo p4"></div>
+                <div class="petalo p5"></div><div class="petalo p6"></div>
+            </div>
+
+            <div class="flor f5">
+                <div class="centro"></div>
+                <div class="petalo p1"></div><div class="petalo p2"></div>
+                <div class="petalo p3"></div><div class="petalo p4"></div>
+                <div class="petalo p5"></div><div class="petalo p6"></div>
+            </div>
 
         </div>
 
-        <!--
-        frontal.jpg = LA IMAGEN QUE ME MANDASTE
-        trasera.jpg = LA IMAGEN QUE APARECE EN EL VIDEO
-        -->
+        <!-- TARJETA HOT WHEELS SVG -->
 
         <div class="tarjeta" id="tarjeta" onclick="voltear()">
 
             <div class="tarjeta-interior">
 
                 <div class="cara">
-                    <img src="frontal.jpg" alt="Hot Wheels">
+                    <svg viewBox="0 0 100 120">
+                        <rect x="5" y="5" width="90" height="110" rx="8" fill="#111" stroke="#00d2ff" stroke-width="2"/>
+                        <path d="M15,25 Q50,15 85,25 L85,35 Q50,25 15,35 Z" fill="#ff1e00"/>
+                        <text x="50" y="30" fill="#fff" font-size="7" font-weight="bold" text-anchor="middle">HOT WHEELS</text>
+                        <circle cx="50" cy="70" r="28" fill="rgba(0,180,255,0.2)" stroke="#00d2ff" stroke-dasharray="2,2"/>
+                        <path d="M25,75 L35,75 A6,6 0 0,1 47,75 L63,75 A6,6 0 0,1 75,75 L80,75 C83,75 85,71 83,67 L75,63 L60,55 L40,55 L28,63 L20,64 C16,64 12,68 12,70 L12,72 C12,74 14,75 25,75 Z" fill="#00a6ff"/>
+                        <circle cx="41" cy="75" r="4" fill="#fff"/>
+                        <circle cx="69" cy="75" r="4" fill="#fff"/>
+                    </svg>
                 </div>
 
                 <div class="cara trasera">
-                    <img src="trasera.jpg" alt="Hot Wheels">
+                    <svg viewBox="0 0 100 120">
+                        <rect x="5" y="5" width="90" height="110" rx="8" fill="#031126" stroke="#ff0080" stroke-width="2"/>
+                        <path d="M50,45 C50,45 35,30 25,40 C15,50 30,65 50,80 C70,65 85,50 75,40 C65,30 50,45 50,45 Z" fill="#ff1493"/>
+                        <text x="50" y="95" fill="#fff" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle">TE AMO 💙</text>
+                    </svg>
                 </div>
 
             </div>
 
             <div class="indicador">
-                Toca el carrito 💙
+                Toca la tarjeta 💙
             </div>
 
         </div>
@@ -492,15 +572,8 @@ body{
     </div>
 
     <div class="mensaje">
-
-        <strong>Para mi niño hermoso que tanto amo 💙</strong><br><br>
-
-        Si algún día dudas de lo importante que eres para mí,
-        vuelve a leer esto. Llegaste a mi vida y dejaste una huella
-        que nadie podría reemplazar. Gracias por cada sonrisa,
-        cada momento y cada pedacito de amor que me das.
-        Te amo más de lo que estas palabras pueden decir. 💙🌷
-
+        <strong>Para mi niño hermoso que tanto amo 💙</strong><br>
+        Si algún día dudas de lo importante que eres para mí, vuelve a leer esto. Llegaste a mi vida y dejaste una huella que nadie podría reemplazar. Te amo más de lo que estas palabras pueden decir. 💙🌷
     </div>
 
 </div>
@@ -509,28 +582,18 @@ body{
 
 /* CREAR CORAZONES */
 
-const contenedorCorazones =
-document.getElementById("corazones");
+const contenedorCorazones = document.getElementById("corazones");
 
 for(let i=0;i<35;i++){
 
-    const corazon =
-    document.createElement("div");
-
+    const corazon = document.createElement("div");
     corazon.className="corazon";
     corazon.innerHTML="♡";
 
-    corazon.style.left =
-    Math.random()*100+"%";
-
-    corazon.style.fontSize =
-    (15+Math.random()*30)+"px";
-
-    corazon.style.animationDuration =
-    (7+Math.random()*10)+"s";
-
-    corazon.style.animationDelay =
-    (-Math.random()*15)+"s";
+    corazon.style.left = Math.random()*100+"%";
+    corazon.style.fontSize = (15+Math.random()*25)+"px";
+    corazon.style.animationDuration = (7+Math.random()*10)+"s";
+    corazon.style.animationDelay = (-Math.random()*15)+"s";
 
     contenedorCorazones.appendChild(corazon);
 }
@@ -538,24 +601,16 @@ for(let i=0;i<35;i++){
 
 /* CREAR ESTRELLAS */
 
-const estrellas =
-document.getElementById("estrellas");
+const estrellas = document.getElementById("estrellas");
 
-for(let i=0;i<35;i++){
+for(let i=0;i<30;i++){
 
-    const estrella =
-    document.createElement("div");
-
+    const estrella = document.createElement("div");
     estrella.className="estrella";
 
-    estrella.style.left =
-    Math.random()*100+"%";
-
-    estrella.style.top =
-    Math.random()*100+"%";
-
-    estrella.style.animationDelay =
-    Math.random()*2+"s";
+    estrella.style.left = Math.random()*100+"%";
+    estrella.style.top = Math.random()*100+"%";
+    estrella.style.animationDelay = Math.random()*2+"s";
 
     estrellas.appendChild(estrella);
 }
@@ -563,8 +618,7 @@ for(let i=0;i<35;i++){
 
 /* CÓDIGO QUE SE ESCRIBE */
 
-const texto = `.
-.Hot_Wheels {
+const texto = `.Hot_Wheels {
     position: absolute;
     width: 90%;
     font-size: 2rem;
@@ -579,24 +633,16 @@ const texto = `.
     animation: bloom 1.5s ease;
 }`;
 
-const codigo =
-document.getElementById("codigoTexto");
+const codigo = document.getElementById("codigoTexto");
 
 let posicion=0;
 
 function escribir(){
-
     if(posicion < texto.length){
-
-        codigo.textContent =
-        texto.substring(0,posicion);
-
+        codigo.textContent = texto.substring(0,posicion);
         posicion++;
-
         setTimeout(escribir,25);
-
     }
-
 }
 
 setTimeout(escribir,1000);
@@ -605,33 +651,23 @@ setTimeout(escribir,1000);
 /* VOLTEAR IMAGEN */
 
 function voltear(){
-
-    document
-    .getElementById("tarjeta")
-    .classList.toggle("voltear");
-
+    document.getElementById("tarjeta").classList.toggle("voltear");
 }
 
 
 /* VOLTEAR AUTOMÁTICAMENTE */
 
 setTimeout(()=>{
-
-    document
-    .getElementById("tarjeta")
-    .classList.add("voltear");
+    document.getElementById("tarjeta").classList.add("voltear");
 
     setTimeout(()=>{
-
-        document
-        .getElementById("tarjeta")
-        .classList.remove("voltear");
-
+        document.getElementById("tarjeta").classList.remove("voltear");
     },3000);
 
-},9000);
+},6000);
 
 </script>
 
 </body>
-  </html>
+</html>
+                                                 
