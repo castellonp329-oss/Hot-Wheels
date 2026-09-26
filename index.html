@@ -31,6 +31,31 @@ body{
         linear-gradient(180deg,#ff0080,#13000d 70%,#000);
 }
 
+/* BOTÓN DE MÚSICA */
+.btn-musica {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 30;
+    background: rgba(0, 150, 255, 0.85);
+    color: #fff;
+    border: 1px solid #69c8ff;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s;
+}
+
+.btn-musica:active {
+    transform: scale(0.95);
+}
+
 /* CORAZONES DEL FONDO */
 
 .corazones{
@@ -453,7 +478,8 @@ body{
 
 <body>
 
-<!-- MUSICA DE FONDO -->
+<!-- BOTÓN Y AUDIO -->
+<button class="btn-musica" id="btnMusica" onclick="toggleMusica()">🎵 Reproducir Música</button>
 <audio id="musica" src="cancion.mp3" loop></audio>
 
 <div class="contenedor">
@@ -621,11 +647,29 @@ body{
 
 <script>
 
-/* REPRODUCCIÓN AUTOMÁTICA DE MÚSICA AL INTERACTUAR */
+/* CONTROL DE MÚSICA */
 const musica = document.getElementById("musica");
-document.body.addEventListener("click", () => {
+const btnMusica = document.getElementById("btnMusica");
+
+function toggleMusica() {
     if (musica.paused) {
-        musica.play();
+        musica.play().then(() => {
+            btnMusica.innerHTML = "⏸ Pausar Música";
+        }).catch(e => {
+            console.log("Error al reproducir audio:", e);
+        });
+    } else {
+        musica.pause();
+        btnMusica.innerHTML = "🎵 Reproducir Música";
+    }
+}
+
+/* REPRODUCIR AL HACER CUALQUIER CLIC EN LA PÁGINA */
+document.body.addEventListener("click", (e) => {
+    if (e.target !== btnMusica && musica.paused) {
+        musica.play().then(() => {
+            btnMusica.innerHTML = "⏸ Pausar Música";
+        }).catch(() => {});
     }
 }, { once: true });
 
@@ -706,5 +750,5 @@ function voltear(){
 </script>
 
 </body>
-    </html>
-    
+        </html>
+                        
